@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+		
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
+		<property name="hibernate.connection.username">bears</property>
+		<property name="hibernate.connection.password">p4ssw0rd</property>
+		
+		<!-- Some hibernate configurations -->
+		<!-- <property name="show_sql">true</property>
+		<property name="hibernate.format_sql">true</property> -->
+		
+		<property name="hibernate.connection.pool_size">5</property>
+		
+		<mapping class="com.revature.entities.Bear"></mapping>
+		<mapping class="com.revature.entities.Cave"></mapping>
+		<mapping class="com.revature.entities.HoneyPot"></mapping>
+		
+	
+	</session-factory>
+</hibernate-configuration>
