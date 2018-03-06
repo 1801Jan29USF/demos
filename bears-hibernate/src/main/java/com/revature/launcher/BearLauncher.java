@@ -6,13 +6,12 @@ import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 import com.revature.dao.BearDao;
 import com.revature.dao.BearHib;
 import com.revature.entities.Bear;
-import com.revature.entities.Cave;
-import com.revature.entities.HoneyPot;
 import com.revature.util.SessionUtil;
 
 public class BearLauncher {
@@ -20,7 +19,7 @@ public class BearLauncher {
 	private static BearDao bdao = new BearHib();
 	private static SessionUtil su = SessionUtil.getSessionUtil();
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		// log.info(bdao.getById(3));
 //		// log.info(bdao.loadById(5));
 //		 Bear b = new Bear(0, "White", "Polar", 2, 9, new Cave(7, 100, "Deep", null),
@@ -40,7 +39,30 @@ public class BearLauncher {
 		// });
 //		moreHQLDemos();
 //		moreCriteriaDemos();
-		namedQuery();
+//		namedQuery();
+		
+		Thread.sleep(3000);
+		l1Cache();
+	}
+
+	private static void l1Cache() {
+		Session se = su.getSession();
+		log.info("================TRANSACTION 1========================");
+		log.info("================TRANSACTION 1========================");
+		log.info("================TRANSACTION 1========================");
+		// find all bears where honey amount is greater than 3
+		
+		bdao.getAll();
+		
+		
+		log.info("================TRANSACTION 2========================");
+		log.info("================TRANSACTION 2========================");
+		log.info("================TRANSACTION 2========================");
+		
+		bdao.getAll();
+		
+		
+		se.close();
 	}
 
 	private static void namedQuery() {
