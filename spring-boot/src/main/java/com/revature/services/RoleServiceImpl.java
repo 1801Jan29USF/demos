@@ -1,5 +1,7 @@
 package com.revature.services;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,16 @@ public class RoleServiceImpl implements RoleService {
 	@Transactional
 	public Role save(Role role) {
 		return roleRepo.save(role);
+	}
+
+	@Override
+	public List<Role> findall() {
+		return roleRepo.findAll();
+	}
+
+	@Override
+	public Role findByName(String name) {
+		return roleRepo.findByRole(name);
 	}
 
 }

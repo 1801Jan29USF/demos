@@ -1,5 +1,13 @@
 package com.revature.services;
 
+import java.util.List;
+
+import com.revature.entities.AppUser;
+
 public interface UserService {
-	String test(String test);
+
+	AppUser save(AppUser u);
+
+
+	List<AppUser> findByRole(String role);
 }
