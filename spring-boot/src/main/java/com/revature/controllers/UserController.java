@@ -2,7 +2,10 @@ package com.revature.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,12 +23,12 @@ public class UserController {
 	private UserService us;
 
 	@GetMapping("role/{role}")
-	public List<AppUser> findAllUsers(@PathVariable String role) {
+	public List<AppUser> findByRole(@PathVariable String role) {
 		return us.findByRole(role);
 	}
 
 	@PostMapping
-	public AppUser creatUser(@RequestBody AppUser u) {
+	public AppUser creatUser(@Valid @RequestBody AppUser u) {
 		return us.save(u);
 	}
 }

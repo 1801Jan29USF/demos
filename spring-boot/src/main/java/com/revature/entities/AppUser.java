@@ -7,15 +7,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import com.revature.projections.UserNoPasswordProjection;
 
 @Entity
-public class AppUser {
+public class AppUser implements UserNoPasswordProjection {
 	@Id
 	@SequenceGenerator(name = "userid_seq", sequenceName = "userid_seq")
 	@GeneratedValue(generator = "userid_seq", strategy = GenerationType.AUTO)
 	private int id;
 
+	@NotNull
+	@Size(min = 5, max = 20)
 	private String username;
+
+	@NotNull
 	private String password;
 
 	@ManyToOne(fetch = FetchType.EAGER)
