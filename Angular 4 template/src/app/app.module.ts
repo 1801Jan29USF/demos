@@ -33,6 +33,7 @@ import { UsersComponent } from './components/users/users.component';
 import { LoggedInGuard } from './guards/logged-in.guard';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { TicTacToeComponent } from './components/tic-tac-toe/tic-tac-toe.component';
+import { SpringComponent } from './components/spring/spring.component';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { TicTacToeComponent } from './components/tic-tac-toe/tic-tac-toe.compone
     PokemonComponent,
     LoginComponent,
     UsersComponent,
-    TicTacToeComponent
+    TicTacToeComponent,
+    SpringComponent
   ],
   providers: [
     HeroService,
