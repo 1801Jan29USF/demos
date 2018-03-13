@@ -9,5 +9,5 @@ public interface RoleService {
 
 	List<Role> findall();
 
-	Role findByName(String name);
+	Role findByName(String name) throws Exception;
 }
