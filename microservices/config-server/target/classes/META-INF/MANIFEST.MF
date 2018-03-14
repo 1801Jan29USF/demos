@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Implementation-Title: discovery-service
+Implementation-Title: config-server
 Implementation-Version: 0.0.1-SNAPSHOT
 Built-By: USER
 Implementation-Vendor-Id: revature
