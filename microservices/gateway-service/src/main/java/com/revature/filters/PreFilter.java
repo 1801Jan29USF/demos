@@ -29,8 +29,8 @@ public class PreFilter extends ZuulFilter {
 
 		System.out.println(String.format("%s request to %s", request.getMethod(), request.getRequestURL().toString()));
 		
-		ctx.setResponseBody("test");
-		ctx.unset();
+//		ctx.setResponseBody("test");
+//		ctx.unset();
 		
 		return null;
 	}
